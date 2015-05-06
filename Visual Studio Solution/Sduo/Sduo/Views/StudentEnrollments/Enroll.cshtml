@@ -1,0 +1,30 @@
+﻿@model Sduo.Models.Student
+
+@{
+    ViewBag.Title = "Tilmeld fag";
+}
+
+<h2>Tilmeld @Model.Name til fag</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.Id)
+
+    <div>Fag</div>
+    <div>
+        @Html.DropDownList("Course", ViewBag.Courses as SelectList)
+    </div>
+
+    <p>
+        <button onclick="@Url.Action("Enroll")">Tilmeld</button>
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Tilbage til Tilmeldinger", "Index", new { studentId = Model.Id })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

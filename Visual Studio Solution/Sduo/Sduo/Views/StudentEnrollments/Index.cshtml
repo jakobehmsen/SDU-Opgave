@@ -1,0 +1,39 @@
+﻿@model Sduo.Models.Student
+
+@{
+    ViewBag.Title = "Tilmeldinger for studerende " + Model.Name;
+}
+
+<h2>Tilmeldinger for studerende @Model.Name</h2>
+
+<p>
+    @Html.ActionLink("Tilmeld fag", "Enroll", new { studentId = Model.Id })
+</p>
+<table>
+    <tr>
+        <th>Kode</th>
+        <th>Beskrivelse</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Courses) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Afmeld", "Withdraw", new { studentId = Model.Id, courseId = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    <div>
+        @Html.ActionLink("Tilbage til Studerende", "Index", "Students")
+    </div>
+</p>

@@ -1,0 +1,15 @@
+﻿@model Sduo.Models.Student
+
+@{
+    ViewBag.Title = "Afmeld " + Model.Name + " fra " + ViewBag.CourseCode + "?";
+}
+
+<h2>Ønsker du at afmelde studerende @(Model.Name) fra faget @ViewBag.CourseCode?</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <button onclick="@Url.Action("Withdraw", new { studentId = Model.Id, courseId = ViewBag.CourseId })">Afmeld</button> |
+        @Html.ActionLink("Tilbage til Tilmeldinger", "Index", new { studentId = Model.Id })
+    </p>
+}

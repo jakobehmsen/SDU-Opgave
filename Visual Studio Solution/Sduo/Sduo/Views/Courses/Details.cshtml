@@ -1,0 +1,29 @@
+﻿@model Sduo.Models.Course
+
+@{
+    ViewBag.Title = "Visning af fag";
+}
+
+<h2>Visning af fag</h2>
+
+<fieldset>
+    <legend>Course</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Code)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Code)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Redigér", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Tilbage til Fag", "Index")
+</p>

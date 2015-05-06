@@ -1,0 +1,15 @@
+﻿@model Sduo.Models.Student
+
+@{
+    ViewBag.Title = "Slet studerede " + Model.Name + "?";
+}
+
+<h2>Ønsker du at slette studerende @(Model.Name)?</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <button onclick="@Url.Action("Delete")">Slet</button> |
+        @Html.ActionLink("Tilbage til Studerende", "Index")
+    </p>
+}

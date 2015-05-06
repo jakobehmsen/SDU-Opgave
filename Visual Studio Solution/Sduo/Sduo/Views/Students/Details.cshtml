@@ -1,0 +1,71 @@
+﻿@model Sduo.Models.Student
+
+@{
+    ViewBag.Title = "Visning af studerende";
+}
+
+<h2>Visning af studerende</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CprNr)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CprNr)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PostalCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PostalCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GenderEnum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GenderEnum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhoneNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Redigér", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Tilbage til Studerende", "Index")
+</p>

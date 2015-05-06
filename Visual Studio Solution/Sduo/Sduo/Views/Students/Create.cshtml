@@ -1,0 +1,92 @@
+﻿@model Sduo.Models.Student
+
+@{
+    ViewBag.Title = "Ny studerende";
+}
+
+<h2>Ny studerende</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Studerende</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CprNr)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CprNr)
+            @Html.ValidationMessageFor(model => model.CprNr)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PostalCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostalCode)
+            @Html.ValidationMessageFor(model => model.PostalCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GenderEnum)
+        </div>
+        <div class="editor-field">
+            @Html.EnumDropDownListFor(model => model.GenderEnum)
+            @Html.ValidationMessageFor(model => model.GenderEnum)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhoneNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhoneNumber)
+            @Html.ValidationMessageFor(model => model.PhoneNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <p>
+            <button onclick="@Url.Action("Create")">Opret</button>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Tilbage til Studerende", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

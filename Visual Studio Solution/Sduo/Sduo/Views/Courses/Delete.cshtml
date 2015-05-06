@@ -1,0 +1,13 @@
+﻿@model Sduo.Models.Course
+
+@{
+    ViewBag.Title = "Slet faget " + Model.Code + "?";
+}
+<h2>Ønsker du at slette faget @(Model.Code)?</h2>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <button onclick="@Url.Action("Delete")">Slet</button> |
+        @Html.ActionLink("Tilbage til Fag", "Index")
+    </p>
+}
