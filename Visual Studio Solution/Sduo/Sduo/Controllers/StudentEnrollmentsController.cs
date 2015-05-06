@@ -54,28 +54,23 @@ namespace Sduo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Enroll(Student student)
         {
-            if (ModelState.IsValid)
+            student = db.Students.Find(student.Id);
+            if (student == null)
             {
-                student = db.Students.Find(student.Id);
-                if (student == null)
-                {
-                    return HttpNotFound();
-                }
-                int courseId = int.Parse(this.Request.Form["Course"]);
-                Course course = db.Courses.Find(courseId);
-                if (course == null)
-                {
-                    return HttpNotFound();
-                }
-
-                student.Courses.Add(course);
-
-                db.SaveChanges();
-
-                return RedirectToAction("Index", new { studentId = student.Id });
+                return HttpNotFound();
+            }
+            int courseId = int.Parse(this.Request.Form["Course"]);
+            Course course = db.Courses.Find(courseId);
+            if (course == null)
+            {
+                return HttpNotFound();
             }
 
-            return View(student);
+            student.Courses.Add(course);
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index", new { studentId = student.Id });
         }
 
         //
